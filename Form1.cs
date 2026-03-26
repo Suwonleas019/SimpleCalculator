@@ -38,6 +38,7 @@ namespace SimpleCalculator
             BTce.Click += BTce_Click;
             BTc.Click += BTc_Click;
             BTdel.Click += BTdel_Click;
+
         }
 
         // 숫자 버튼이 클릭되었을 때 실행될 공통 메서드
