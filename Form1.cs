@@ -160,15 +160,17 @@ namespace SimpleCalculator
                 case Keys.D2: case Keys.NumPad2: BT2.PerformClick(); break;
                 case Keys.D3: case Keys.NumPad3: BT3.PerformClick(); break;
                 case Keys.D4: case Keys.NumPad4: BT4.PerformClick(); break;
-                case Keys.D5: case Keys.NumPad5: 
+                case Keys.D5:
+                case Keys.NumPad5:
                     if (e.Shift) BTdivision.PerformClick(); // Shift + 5 = '%'
-                    else BT5.PerformClick(); 
+                    else BT5.PerformClick();
                     break;
                 case Keys.D6: case Keys.NumPad6: BT6.PerformClick(); break;
                 case Keys.D7: case Keys.NumPad7: BT7.PerformClick(); break;
-                case Keys.D8: case Keys.NumPad8: 
+                case Keys.D8:
+                case Keys.NumPad8:
                     if (e.Shift) BTmulti.PerformClick();   // Shift + 8 = '*'
-                    else BT8.PerformClick(); 
+                    else BT8.PerformClick();
                     break;
                 case Keys.D9: case Keys.NumPad9: BT9.PerformClick(); break;
 
