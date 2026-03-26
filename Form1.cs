@@ -48,6 +48,14 @@ namespace SimpleCalculator
             Button? clickedButton = sender as Button;
             if (clickedButton != null)
             {
+                // 계산이 끝난 직후(= 기호가 있는 경우) 숫자를 누르면 전체 초기화
+                if (txtResult.Text.Contains("="))
+                {
+                    txtResult.Text = "";
+                    txtInput.Text = "0";
+                    isOperatorClicked = false;
+                }
+
                 // 입력창이 "0"이거나 연산자 버튼을 방금 누른 상태라면, 새로 누른 숫자로 덮어씁니다.
                 if (txtInput.Text == "0" || isOperatorClicked)
                 {
@@ -59,6 +67,9 @@ namespace SimpleCalculator
                     // 그 외에는 기존 숫자에 이어 붙입니다.
                     txtInput.Text += clickedButton.Text;
                 }
+
+                // 숫자를 누를 때마다 결과창(txtResult)에 식을 실시간으로 반영
+                UpdateResultTextBox();
             }
         }
 
@@ -66,60 +77,122 @@ namespace SimpleCalculator
         private void OperatorButton_Click(object? sender, EventArgs e)
         {
             Button? clickedButton = sender as Button;
-            if (clickedButton != null && double.TryParse(txtInput.Text, out double parsedValue))
-            {
-                firstOperand = parsedValue;            // 현재 입력된 숫자를 기억
-                currentOperator = clickedButton.Text;  // 어느 연산기호를 눌렀는지 기억
-                isOperatorClicked = true;              // 연산기호를 눌렀음을 표시
+            if (clickedButton == null) return;
+            string op = clickedButton.Text;
 
-                // 위에 있는 txtResult에 과정 보여주기
-                txtResult.Text = $"{firstOperand} {currentOperator}";
+            // 이미 '='로 계산이 끝난 상태에서 연산자를 또 누르면, 그 결과값부터 이어서 계산
+            if (txtResult.Text.Contains("="))
+            {
+                txtResult.Text = txtInput.Text + op;
+                isOperatorClicked = true;
+                return;
+            }
+
+            // 방금 연산자를 눌렀는데 다른 연산자로 바꾸는 경우 (예: + 눌렀다가 - 누름)
+            if (isOperatorClicked && txtResult.Text.Length > 0)
+            {
+                // 마지막 연산자 문자를 새 연산자로 교체
+                txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1) + op;
+                return;
+            }
+
+            // 첫 번째 숫자와 현재 연산자를 결과창에 표시
+            // 이미 UpdateResultTextBox()에 의해 제일 마지막 숫자가 txtResult.Text에 반영되어 있습니다.
+            // 따라서 txtResult.Text 끝에 연산자 문자 하나만 붙여주면 중복 입력이 안 됩니다.
+            txtResult.Text += op;
+            isOperatorClicked = true;
+        }
+
+        // txtResult 창에 현재 입력중인 전체 식을 보여주는 헬퍼 메서드
+        private void UpdateResultTextBox()
+        {
+            // 아직 '='로 계산되지 않았고, 눌려진 연산자가 있으면 (혹은 없을 때도)
+            if (!txtResult.Text.Contains("=") && !isOperatorClicked)
+            {
+                string currentFormula = txtResult.Text;
+
+                // 마지막에 연산자가 있는지 확인하고, 그 위치까지만의 문자열을 구합니다.
+                int lastOpIndex = currentFormula.LastIndexOfAny(new char[] { '+', '-', 'X', '%' });
+
+                if (lastOpIndex >= 0)
+                {
+                    // 연산자까지만 보존하고 뒤에 붙어있던 숫자는 잘라낸 뒤, 새로 입력된 숫자로 대체
+                    currentFormula = currentFormula.Substring(0, lastOpIndex + 1);
+                }
+                else
+                {
+                    // 연산자가 없으면 (단순 첫 숫자 입력 중이면) 비움
+                    currentFormula = "";
+                }
+
+                // 입력창이 비어있으면(CE로 지워진 상태) 숫자 없이 연산자까지만 보여줌
+                if (txtInput.Text == "")
+                {
+                    txtResult.Text = currentFormula;
+                }
+                else
+                {
+                    txtResult.Text = currentFormula + txtInput.Text;
+                }
+            }
+            else if (!isOperatorClicked && txtResult.Text == "")
+            {
+                // 연산자가 없고 그냥 첫 숫자 입력중
+                txtResult.Text = txtInput.Text;
             }
         }
 
         // = 버튼을 눌렀을 때 실행될 메서드
         private void EqualButton_Click(object? sender, EventArgs e)
         {
-            if (double.TryParse(txtInput.Text, out double secondOperand))
-            {
-                double result = 0;
+            if (txtResult.Text.Contains("=")) return; // 이미 계산된 경우 무시
+            if (string.IsNullOrEmpty(txtResult.Text)) return; // 연산자 없이 숫자인 경우 무시
 
-                // 기억해둔 연산자에 따라 계산 수행
-                switch (currentOperator)
+            // 식을 UpdateResultTextBox에서 실시간으로 txtResult.Text에 붙이고 있으므로
+            // fullExpression은 곧 txtResult.Text 전체가 됩니다. (예: "2+5")
+            string fullExpression = txtResult.Text;
+
+            // 계산을 위해 특수기호 변환 및 나누기 시 소수점(double) 연산을 위한 처리
+            string computeExpression = fullExpression.Replace("X", "*")
+                                                     .Replace("%", "* 1.0 /")
+                                                     .Replace("/", "* 1.0 /");
+
+            try
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                var result = dt.Compute(computeExpression, "");
+
+                // 무한대나 숫자가 아닌 값이 나오는 경우 (예: 0으로 나누기)
+                if (result.ToString() == "∞" || result.ToString() == "NaN" || result.ToString() == "Infinity")
                 {
-                    case "+": result = firstOperand + secondOperand; break;
-                    case "-": result = firstOperand - secondOperand; break;
-                    case "X": result = firstOperand * secondOperand; break;
-                    case "%":
-                    case "/":
-                        if (secondOperand != 0)
-                        {
-                            // % 버튼을 눌렀을 때 나눗셈(/) 연산으로 실행되도록 수정
-                            result = firstOperand / secondOperand; 
-                        }
-                        else
-                        {
-                            MessageBox.Show("0으로 나눌 수 없습니다.");
-                            return;
-                        }
-                        break;
-                    default:
-                        return; // 눌려진 연산기호가 없으면 실행 중단
+                    MessageBox.Show("0으로 나눌 수 없습니다.");
+                    txtInput.Text = "0";
+                    txtResult.Text = "";
+                }
+                else
+                {
+                    // 식과 결과를 표시 (예: 2+5+10=17)
+                    txtResult.Text = fullExpression + "=" + result.ToString();
+                    txtInput.Text = result.ToString();
                 }
 
-                // 결과 표시
-                txtResult.Text = $"{firstOperand} {currentOperator} {secondOperand} = {result}";
-                txtInput.Text = result.ToString();
-
-                // 계산이 끝났으므로 다음 숫자를 누르면 새로 입력되도록 설정
                 isOperatorClicked = true;
+            }
+            catch
+            {
+                MessageBox.Show("수식이 올바르지 않습니다.");
+                txtInput.Text = "0";
+                txtResult.Text = "";
             }
         }
 
         // CE (Clear Entry) 버튼 : 현재 입력 중인 숫자만 초기화
         private void BTce_Click(object? sender, EventArgs e)
         {
-            txtInput.Text = "0";
+            txtInput.Text = "";
+
+            // 방금 지운 숫자가 결과창(txtResult)에도 실시간으로 반영되게 업데이트
+            UpdateResultTextBox();
         }
 
         // C (Clear) 버튼 : 모든 계산 상태 초기화
@@ -145,6 +218,9 @@ namespace SimpleCalculator
                 {
                     txtInput.Text = "0";
                 }
+
+                // 지운 내용도 txtResult에 실시간 반영
+                UpdateResultTextBox();
             }
         }
 
@@ -216,6 +292,11 @@ namespace SimpleCalculator
         }
 
         private void txtInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BT7_Click(object sender, EventArgs e)
         {
 
         }

@@ -58,10 +58,10 @@
             // BT1
             // 
             BT1.BackColor = Color.FromArgb(192, 255, 255);
-            BT1.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT1.Location = new Point(3, 177);
+            BT1.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT1.Location = new Point(3, 249);
             BT1.Name = "BT1";
-            BT1.Size = new Size(79, 52);
+            BT1.Size = new Size(138, 76);
             BT1.TabIndex = 0;
             BT1.Text = "1";
             BT1.UseVisualStyleBackColor = false;
@@ -69,10 +69,10 @@
             // BT2
             // 
             BT2.BackColor = Color.FromArgb(192, 255, 255);
-            BT2.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT2.Location = new Point(90, 177);
+            BT2.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT2.Location = new Point(147, 249);
             BT2.Name = "BT2";
-            BT2.Size = new Size(79, 52);
+            BT2.Size = new Size(138, 76);
             BT2.TabIndex = 1;
             BT2.Text = "2";
             BT2.UseVisualStyleBackColor = false;
@@ -80,10 +80,10 @@
             // BT3
             // 
             BT3.BackColor = Color.FromArgb(192, 255, 255);
-            BT3.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT3.Location = new Point(177, 177);
+            BT3.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT3.Location = new Point(291, 249);
             BT3.Name = "BT3";
-            BT3.Size = new Size(79, 52);
+            BT3.Size = new Size(138, 76);
             BT3.TabIndex = 2;
             BT3.Text = "3";
             BT3.UseVisualStyleBackColor = false;
@@ -91,10 +91,10 @@
             // BT6
             // 
             BT6.BackColor = Color.FromArgb(192, 255, 255);
-            BT6.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT6.Location = new Point(177, 119);
+            BT6.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT6.Location = new Point(291, 167);
             BT6.Name = "BT6";
-            BT6.Size = new Size(79, 52);
+            BT6.Size = new Size(138, 76);
             BT6.TabIndex = 5;
             BT6.Text = "6";
             BT6.UseVisualStyleBackColor = false;
@@ -102,10 +102,10 @@
             // BT5
             // 
             BT5.BackColor = Color.FromArgb(192, 255, 255);
-            BT5.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT5.Location = new Point(90, 119);
+            BT5.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT5.Location = new Point(147, 167);
             BT5.Name = "BT5";
-            BT5.Size = new Size(79, 52);
+            BT5.Size = new Size(138, 76);
             BT5.TabIndex = 4;
             BT5.Text = "5";
             BT5.UseVisualStyleBackColor = false;
@@ -113,10 +113,10 @@
             // BT4
             // 
             BT4.BackColor = Color.FromArgb(192, 255, 255);
-            BT4.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT4.Location = new Point(3, 119);
+            BT4.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT4.Location = new Point(3, 167);
             BT4.Name = "BT4";
-            BT4.Size = new Size(79, 52);
+            BT4.Size = new Size(138, 76);
             BT4.TabIndex = 3;
             BT4.Text = "4";
             BT4.UseVisualStyleBackColor = false;
@@ -124,10 +124,10 @@
             // BT9
             // 
             BT9.BackColor = Color.FromArgb(192, 255, 255);
-            BT9.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT9.Location = new Point(177, 61);
+            BT9.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT9.Location = new Point(291, 85);
             BT9.Name = "BT9";
-            BT9.Size = new Size(79, 52);
+            BT9.Size = new Size(138, 76);
             BT9.TabIndex = 8;
             BT9.Text = "9";
             BT9.UseVisualStyleBackColor = false;
@@ -135,10 +135,10 @@
             // BT8
             // 
             BT8.BackColor = Color.FromArgb(192, 255, 255);
-            BT8.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT8.Location = new Point(90, 61);
+            BT8.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT8.Location = new Point(147, 85);
             BT8.Name = "BT8";
-            BT8.Size = new Size(79, 52);
+            BT8.Size = new Size(138, 76);
             BT8.TabIndex = 7;
             BT8.Text = "8";
             BT8.UseVisualStyleBackColor = false;
@@ -146,51 +146,54 @@
             // BT7
             // 
             BT7.BackColor = Color.FromArgb(192, 255, 255);
-            BT7.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT7.Location = new Point(3, 61);
+            BT7.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT7.Location = new Point(3, 85);
             BT7.Name = "BT7";
-            BT7.Size = new Size(79, 52);
+            BT7.Size = new Size(138, 76);
             BT7.TabIndex = 6;
             BT7.Text = "7";
             BT7.UseVisualStyleBackColor = false;
+            BT7.Click += BT7_Click;
             // 
             // BTpoint
             // 
-            BTpoint.Location = new Point(177, 235);
+            BTpoint.BackColor = Color.FromArgb(128, 255, 128);
+            BTpoint.Location = new Point(291, 331);
             BTpoint.Name = "BTpoint";
-            BTpoint.Size = new Size(79, 52);
+            BTpoint.Size = new Size(138, 76);
             BTpoint.TabIndex = 11;
             BTpoint.Text = ".";
-            BTpoint.UseVisualStyleBackColor = true;
+            BTpoint.UseVisualStyleBackColor = false;
             // 
             // BT0
             // 
             BT0.BackColor = Color.FromArgb(192, 255, 255);
-            BT0.Font = new Font("맑은 고딕", 10.2F, FontStyle.Bold);
-            BT0.Location = new Point(90, 235);
+            BT0.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BT0.Location = new Point(147, 331);
             BT0.Name = "BT0";
-            BT0.Size = new Size(79, 52);
+            BT0.Size = new Size(138, 76);
             BT0.TabIndex = 10;
             BT0.Text = "0";
             BT0.UseVisualStyleBackColor = false;
             // 
             // BTpm
             // 
-            BTpm.Location = new Point(3, 235);
+            BTpm.BackColor = Color.FromArgb(128, 255, 128);
+            BTpm.Location = new Point(3, 331);
             BTpm.Name = "BTpm";
-            BTpm.Size = new Size(79, 52);
+            BTpm.Size = new Size(138, 76);
             BTpm.TabIndex = 9;
             BTpm.Text = "+/-";
-            BTpm.UseVisualStyleBackColor = true;
+            BTpm.UseVisualStyleBackColor = false;
             // 
             // BTdel
             // 
             BTdel.BackColor = Color.FromArgb(255, 192, 128);
-            BTdel.Font = new Font("맑은 고딕", 9F, FontStyle.Bold);
+            BTdel.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
             BTdel.ForeColor = Color.FromArgb(0, 0, 192);
-            BTdel.Location = new Point(177, 3);
+            BTdel.Location = new Point(291, 3);
             BTdel.Name = "BTdel";
-            BTdel.Size = new Size(79, 52);
+            BTdel.Size = new Size(138, 76);
             BTdel.TabIndex = 14;
             BTdel.Text = "del";
             BTdel.UseVisualStyleBackColor = false;
@@ -198,11 +201,11 @@
             // BTc
             // 
             BTc.BackColor = Color.FromArgb(255, 192, 128);
-            BTc.Font = new Font("맑은 고딕", 9F, FontStyle.Bold);
+            BTc.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
             BTc.ForeColor = Color.FromArgb(0, 0, 192);
-            BTc.Location = new Point(90, 3);
+            BTc.Location = new Point(147, 3);
             BTc.Name = "BTc";
-            BTc.Size = new Size(79, 52);
+            BTc.Size = new Size(138, 76);
             BTc.TabIndex = 13;
             BTc.Text = "C";
             BTc.UseVisualStyleBackColor = false;
@@ -210,11 +213,11 @@
             // BTce
             // 
             BTce.BackColor = Color.FromArgb(255, 192, 128);
-            BTce.Font = new Font("맑은 고딕", 9F, FontStyle.Bold);
+            BTce.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point, 129);
             BTce.ForeColor = Color.FromArgb(0, 0, 192);
             BTce.Location = new Point(3, 3);
             BTce.Name = "BTce";
-            BTce.Size = new Size(79, 52);
+            BTce.Size = new Size(138, 76);
             BTce.TabIndex = 12;
             BTce.Text = "CE";
             BTce.UseVisualStyleBackColor = false;
@@ -222,10 +225,10 @@
             // BTdivision
             // 
             BTdivision.BackColor = Color.FromArgb(255, 255, 128);
-            BTdivision.Font = new Font("맑은 고딕", 12F, FontStyle.Bold);
-            BTdivision.Location = new Point(264, 3);
+            BTdivision.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BTdivision.Location = new Point(435, 3);
             BTdivision.Name = "BTdivision";
-            BTdivision.Size = new Size(79, 52);
+            BTdivision.Size = new Size(140, 76);
             BTdivision.TabIndex = 19;
             BTdivision.Text = "%";
             BTdivision.UseVisualStyleBackColor = false;
@@ -233,10 +236,10 @@
             // BTeq
             // 
             BTeq.BackColor = Color.FromArgb(255, 255, 128);
-            BTeq.Font = new Font("맑은 고딕", 12F, FontStyle.Bold);
-            BTeq.Location = new Point(264, 235);
+            BTeq.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BTeq.Location = new Point(435, 331);
             BTeq.Name = "BTeq";
-            BTeq.Size = new Size(79, 52);
+            BTeq.Size = new Size(140, 76);
             BTeq.TabIndex = 18;
             BTeq.Text = "=";
             BTeq.UseVisualStyleBackColor = false;
@@ -244,10 +247,10 @@
             // BTpl
             // 
             BTpl.BackColor = Color.FromArgb(255, 255, 128);
-            BTpl.Font = new Font("맑은 고딕", 12F, FontStyle.Bold);
-            BTpl.Location = new Point(264, 177);
+            BTpl.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BTpl.Location = new Point(435, 249);
             BTpl.Name = "BTpl";
-            BTpl.Size = new Size(79, 52);
+            BTpl.Size = new Size(140, 76);
             BTpl.TabIndex = 17;
             BTpl.Text = "+";
             BTpl.UseVisualStyleBackColor = false;
@@ -255,10 +258,10 @@
             // BTmi
             // 
             BTmi.BackColor = Color.FromArgb(255, 255, 128);
-            BTmi.Font = new Font("맑은 고딕", 12F, FontStyle.Bold);
-            BTmi.Location = new Point(264, 119);
+            BTmi.Font = new Font("맑은 고딕", 20F, FontStyle.Bold);
+            BTmi.Location = new Point(435, 167);
             BTmi.Name = "BTmi";
-            BTmi.Size = new Size(79, 52);
+            BTmi.Size = new Size(140, 76);
             BTmi.TabIndex = 16;
             BTmi.Text = "-";
             BTmi.UseVisualStyleBackColor = false;
@@ -267,9 +270,9 @@
             // 
             BTmulti.BackColor = Color.FromArgb(255, 255, 128);
             BTmulti.Font = new Font("맑은 고딕", 12F, FontStyle.Bold);
-            BTmulti.Location = new Point(264, 61);
+            BTmulti.Location = new Point(435, 85);
             BTmulti.Name = "BTmulti";
-            BTmulti.Size = new Size(79, 52);
+            BTmulti.Size = new Size(140, 76);
             BTmulti.TabIndex = 15;
             BTmulti.Text = "X";
             BTmulti.UseVisualStyleBackColor = false;
@@ -288,9 +291,10 @@
             // 
             // txtResult
             // 
+            txtResult.Font = new Font("맑은 고딕", 15F);
             txtResult.Location = new Point(48, 108);
             txtResult.Name = "txtResult";
-            txtResult.Size = new Size(350, 27);
+            txtResult.Size = new Size(350, 41);
             txtResult.TabIndex = 22;
             // 
             // tableLayoutPanel1
@@ -320,6 +324,7 @@
             tableLayoutPanel1.Controls.Add(BT5, 1, 2);
             tableLayoutPanel1.Controls.Add(BT1, 0, 3);
             tableLayoutPanel1.Controls.Add(BT6, 2, 2);
+            tableLayoutPanel1.Font = new Font("맑은 고딕", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 129);
             tableLayoutPanel1.Location = new Point(48, 214);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 5;
@@ -328,14 +333,16 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Size = new Size(350, 290);
+            tableLayoutPanel1.Size = new Size(578, 410);
             tableLayoutPanel1.TabIndex = 23;
             // 
             // txtInput
             // 
+            txtInput.BackColor = Color.FromArgb(255, 255, 192);
+            txtInput.Font = new Font("맑은 고딕", 15F);
             txtInput.Location = new Point(48, 159);
             txtInput.Name = "txtInput";
-            txtInput.Size = new Size(350, 27);
+            txtInput.Size = new Size(350, 41);
             txtInput.TabIndex = 24;
             txtInput.Text = "0";
             txtInput.TextChanged += txtInput_TextChanged;
@@ -344,7 +351,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(462, 525);
+            ClientSize = new Size(689, 707);
             Controls.Add(txtInput);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(txtResult);
