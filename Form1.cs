@@ -11,6 +11,10 @@ namespace SimpleCalculator
         {
             InitializeComponent();
 
+            // 폼에서 키보드 입력을 먼저 받을 수 있도록 설정
+            this.KeyPreview = true;
+            this.KeyDown += Form1_KeyDown;
+
             // 0 ~ 9 버튼을 하나의 클릭 이벤트에 연결
             BT0.Click += NumberButton_Click;
             BT1.Click += NumberButton_Click;
@@ -138,6 +142,63 @@ namespace SimpleCalculator
                 {
                     txtInput.Text = "0";
                 }
+            }
+        }
+
+        // 키보드 입력을 처리하는 메서드
+        private void Form1_KeyDown(object? sender, KeyEventArgs e)
+        {
+            // 키보드가 눌렸을 때 매칭되는 버튼의 클릭 이벤트를 강제로 발생시킵니다
+            bool keyHandled = true; // 처리된 키인지 확인
+
+            switch (e.KeyCode)
+            {
+                // 숫자 키보드 및 텐키패드 숫자 처리
+                case Keys.D0: case Keys.NumPad0: BT0.PerformClick(); break;
+                case Keys.D1: case Keys.NumPad1: BT1.PerformClick(); break;
+                case Keys.D2: case Keys.NumPad2: BT2.PerformClick(); break;
+                case Keys.D3: case Keys.NumPad3: BT3.PerformClick(); break;
+                case Keys.D4: case Keys.NumPad4: BT4.PerformClick(); break;
+                case Keys.D5: case Keys.NumPad5: 
+                    if (e.Shift) BTdivision.PerformClick(); // Shift + 5 = '%'
+                    else BT5.PerformClick(); 
+                    break;
+                case Keys.D6: case Keys.NumPad6: BT6.PerformClick(); break;
+                case Keys.D7: case Keys.NumPad7: BT7.PerformClick(); break;
+                case Keys.D8: case Keys.NumPad8: 
+                    if (e.Shift) BTmulti.PerformClick();   // Shift + 8 = '*'
+                    else BT8.PerformClick(); 
+                    break;
+                case Keys.D9: case Keys.NumPad9: BT9.PerformClick(); break;
+
+                // 연산자 처리
+                case Keys.Add: BTpl.PerformClick(); break;
+                case Keys.Subtract: case Keys.OemMinus: BTmi.PerformClick(); break;
+                case Keys.Multiply: BTmulti.PerformClick(); break;
+                case Keys.Divide: BTdivision.PerformClick(); break;
+
+                // Shift + = 인 경우 '+' 처리, 그냥 = 인 경우 '=' 처리
+                case Keys.Oemplus:
+                    if (e.Shift) BTpl.PerformClick();
+                    else BTeq.PerformClick();
+                    break;
+
+                // 엔터(=), 백스페이스(del), ESC(C), Delete(CE)
+                case Keys.Enter: BTeq.PerformClick(); break;
+                case Keys.Back: BTdel.PerformClick(); break;
+                case Keys.Escape: BTc.PerformClick(); break;
+                case Keys.Delete: BTce.PerformClick(); break;
+
+                default:
+                    keyHandled = false; // 매칭되는 키가 아닐 경우
+                    break;
+            }
+
+            // 매칭되는 키를 처리했다면 기본 입력(중복 입력)이나 '띵' 소리가 나지 않게 차단합니다.
+            if (keyHandled)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
