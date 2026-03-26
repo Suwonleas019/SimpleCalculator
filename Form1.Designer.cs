@@ -279,7 +279,7 @@
             LBti.AutoSize = true;
             LBti.Font = new Font("맑은 고딕", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 129);
             LBti.ForeColor = Color.Blue;
-            LBti.Location = new Point(136, 24);
+            LBti.Location = new Point(48, 22);
             LBti.Name = "LBti";
             LBti.Size = new Size(391, 60);
             LBti.TabIndex = 20;
@@ -288,7 +288,7 @@
             // 
             // txtResult
             // 
-            txtResult.Location = new Point(136, 108);
+            txtResult.Location = new Point(48, 108);
             txtResult.Name = "txtResult";
             txtResult.Size = new Size(350, 27);
             txtResult.TabIndex = 22;
@@ -320,7 +320,7 @@
             tableLayoutPanel1.Controls.Add(BT5, 1, 2);
             tableLayoutPanel1.Controls.Add(BT1, 0, 3);
             tableLayoutPanel1.Controls.Add(BT6, 2, 2);
-            tableLayoutPanel1.Location = new Point(136, 223);
+            tableLayoutPanel1.Location = new Point(48, 214);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
@@ -333,7 +333,7 @@
             // 
             // txtInput
             // 
-            txtInput.Location = new Point(136, 168);
+            txtInput.Location = new Point(48, 159);
             txtInput.Name = "txtInput";
             txtInput.Size = new Size(350, 27);
             txtInput.TabIndex = 24;
@@ -344,7 +344,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 525);
+            ClientSize = new Size(462, 525);
             Controls.Add(txtInput);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(txtResult);

@@ -91,9 +91,11 @@ namespace SimpleCalculator
                     case "-": result = firstOperand - secondOperand; break;
                     case "X": result = firstOperand * secondOperand; break;
                     case "%":
+                    case "/":
                         if (secondOperand != 0)
                         {
-                            result = firstOperand % secondOperand;
+                            // % 버튼을 눌렀을 때 나눗셈(/) 연산으로 실행되도록 수정
+                            result = firstOperand / secondOperand; 
                         }
                         else
                         {
